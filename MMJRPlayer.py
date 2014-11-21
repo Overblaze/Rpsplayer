@@ -3,7 +3,6 @@
 # RPSPlayer designed to work with RPSFramework
 # Created by Matt Martorana + Justin Read
 #
-
 #################################################
 import Player
 import Observer
