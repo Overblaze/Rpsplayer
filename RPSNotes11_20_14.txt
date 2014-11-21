@@ -1,0 +1,105 @@
+Class Player(Observer)
+    def play(self, position = None):
+        pass
+    def notify(self,message)
+        pass
+
+**** Due by Tuesday, adapt to Player ****
+def notify(self,message):
+   if (message[0]==Message.GameEnd):
+      ........
+ 
+MatchStart
+MatchEnd
+GameStart
+Game End = (GameEnd, p, q, p's move, q's move, result)
+0=tie
+1=p win
+2=q win
+
+def --init--(self):
+	self.pastmoves=[]
+------------------------------------------------------------
+test.py
+
+import MMJRPlayer
+
+player = MMJRPlayer()
+player.notify((Message.GameEnd,player, None, 0, 2, 1))
+move = player.play()
+
+-----------------------------Tournament----------------------
+--------------------------
+|        Tournament (Observable)
+|-------------------------
+|+begin_tournament
+|+end_tournament
+|+create_match (abstract)
+|+run()
+|+start_match
+|+end_match
+|+start_game
+|+end_game
+|+set_players()
+|+set_game()
+|+set_players()
+|
+
+    def run(self):
+        self.begin_tournament()
+
+            pass                            ((p, q,), 3)
+        while (True):
+            match = self.create_match()
+            if match = None:
+                break
+            
+            self.start_match(match)
+            self.play_match(match)
+            self.end_match(match)
+
+
+        self.end_tournament()
+            pass
+
+-------------------Service Diagram-------------------------
+
+----------------------------------------------
+|    ___ server___     |    ___player___     gm|
+|   Facade->Tourny     |     remote          |
+|            Service   |     playing         |
+|      register(Player)|     Service         |
+|      setGame(Game)   |                     |
+|                      |                     |
+|  tournament          |                     |
+|  allplayall          |                     |
+|  player              |                     |
+|                      |                     |
+|                      |                     |
+|                      |                     |
+----------------------------------------------
+
+------------------------git-----------------------------------
+
+(x) <--(y)<---(z)   geebzter
+
+    (x) <--(y)<---(z)   internet git - personal
+
+          (x) <--(y)<---(z)    local clone
+   
+set up upstream to connect to geebzter
+ ---- email
+rebase 
+
+
+
+
+work on branch, rebase branch onto local master
+
+git fetch upstream/master
+git rebase upstream/master
+git add x, git rebase -- continue
+                      -- abort
+
+
+

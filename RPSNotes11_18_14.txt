@@ -1,0 +1,48 @@
+---------------Player Stuff-----------
+#
+#
+#
+#
+class Player(Observer):
+    def notify(self):
+        pass
+    def get_name(self):
+        pass
+    def play(self):
+        pass
+---------------Tournament--------------
+#
+#
+#
+#
+class Tournament:
+    self.players
+    def setup(self):
+    def get_next_match(self):
+    def update_scores(self):
+    def set_winner(self, Player)
+xxxxxxxxxxxxxxxxx Baliga xxxxxxxxxxxxxxxxxx    
+    create_match(self)
+        pass
+    set_players(self)
+    start_game(p,q):
+    run(self)
+        while(True):
+            match = create_match()
+            if(match==None):
+                break
+            play_match(match)
+
+-----------Game Entity-----------------------
+#
+#
+#
+#
+class GameEntity
+    broadcast(message):
+        messenger.notifyObservers(message)
+
+------------ScoreKeeper-----------------------
+class ScoreKeeper
+        updateTournamentHistory()
+
