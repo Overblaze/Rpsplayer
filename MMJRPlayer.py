@@ -28,7 +28,13 @@ class MMJRPlayer(Player.Player,Observer):
     #c = rpyc.connect(serverAddress, 12345)
 
     def notify(self,message):
-
+        #if (message[0] == Message.MatchStart)
+            
+        if (message[0] == Message.GameEnd):
+            if (message[1] == player): # if we are player 1, we want player 2's move
+                listOfMoves.append(message[4])
+            else:
+                listOfMoves.append(message[3]) # if we are pla
 #
 #
 # do self.
