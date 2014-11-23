@@ -5,73 +5,60 @@
 #
 #################################################
 import Player
-import Observer
-import Message
+from Message import Message
 
-class MMJRPlayer(Player.Player,Observer):
-   
-# change these to object specific, not
-# class specific
-#
-#
-
-    global name 
-    name = "MattMJustinR"
-    global rock
-    rock = 0
-    global scissors
-    scissors = 1
-    global paper
-    paper = 2
-    global listOfMoves
-    listOfMoves=[]
+class MMJRPlayer(Player.Player): # took ,Observer out
+    #global name
+    #global rock
+    #global scissors
+    #global paper
+    #global listOfMoves
+    def __init__(self):
+        Player.Player.__init__(self)
+        self.name = "MattMJustinR"
+        self.rock = 0
+        self.scissors = 1
+        self.paper = 2
+        self.listOfMoves=[2]
     #c = rpyc.connect(serverAddress, 12345)
 
-    def notify(self,message):
+    def notify(self, message):
         #if (message[0] == Message.MatchStart)
             
-        if (message[0] == Message.GameEnd):
-            if (message[1] == player): # if we are player 1, we want player 2's move
-                listOfMoves.append(message[4])
+        if (message[0] == Message.Match_End):
+            if (message[1] == self): # if we are player 1, we want player 2's move
+                self.listOfMoves.append(message[3])
             else:
-                listOfMoves.append(message[3]) # if we are pla
-#
-#
-# do self.
-#
-#
-
-
-
-    def my_rps_play_strategy(self):
-        result = 0
-        for i in range(len(listOfMoves)):
-            result = result + eval(listOfMoves[i])
-        result = result % 3
-        if (result == rock):
-            return rock
-        elif (result == paper):
-            return paper
-        elif (result == scissors):
-            return scissors
+                self.listOfMoves.append(message[4]) #otherwise get other move
 
     def play(self):
-        move = my_rps_play_strategy()
-        return move
+        return my_rps_play_strategy.play(self.listOfMoves)
 
     def set_history(self,listPastMoves):
-        listOfMoves = listPastMoves
+        self.listOfMoves = listPastMoves
 
     def get_name(self):
         return name
 
-    
-    
-def main():
-    
-    player = MattJustinRPSPlayer()
-    player.set_history (['rock','scissors', 'paper', 'rock'])
-    print(player.play())
+class my_rps_play_strategy(object):
 
-if  __name__ =='__main__':
-    main()
+
+    @staticmethod
+    def play(listOfMoves):
+        result = 0
+        rock = 0
+        scissors = 1
+        paper = 2
+        for i in range(len(listOfMoves)):
+            result = result + (listOfMoves[i])
+        result = result % 3
+        return result
+    
+#def main():
+    
+#    player = MMJRPlayer()
+#    player.set_history (['rock','scissors', 'paper', 'rock'])
+#    print(player.play())
+
+#if  __name__ =='__main__':
+#    main()
