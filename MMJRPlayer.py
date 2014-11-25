@@ -26,11 +26,14 @@ class MMJRPlayer(Player.Player): # took ,Observer out
         #if (message[0] == Message.MatchStart)
             
         if (message[0] == Message.Match_End):
-            if (message[1] == self): # if we are player 1, we want player 2's move
-                self.listOfMoves.append(message[3])
-            else:
-                self.listOfMoves.append(message[4]) #otherwise get other move
-
+            if (message[1] == self or message[2] == self): # if we are player 1, we want player 2's move
+                if (message[1] == self)
+                    self.listOfMoves.append(message[3])
+                else:
+                    self.listOfMoves.append(message[4]) #otherwise get other move
+        if (message[0] == Message.Match_Begin):
+            if (message[1] == self or message[2] == self)
+                self.listOfMoves = [2] # the default value is to throw scissors
     def play(self):
         return my_rps_play_strategy.play(self.listOfMoves)
 
